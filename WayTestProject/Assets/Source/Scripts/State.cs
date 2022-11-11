@@ -2,5 +2,6 @@
 {
     Game,
     Pause,
-    BeginGame
+    BeginGame,
+    FinalGame,
 }

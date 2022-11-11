@@ -20,13 +20,13 @@ public abstract class MovableObject : MonoBehaviour
     {
         if (_stateMachine.ActiveState == State.Game)
         {
-            Vector2Int coordinateInMapRepositiory = new Vector2Int(Mathf.RoundToInt(transform.position.x / segmentSize), Mathf.RoundToInt(transform.position.z / segmentSize));
+            Vector2Int coordinateInMapRepositiory = new Vector2Int(Mathf.FloorToInt((transform.position.x / segmentSize)+0.05f), Mathf.FloorToInt((transform.position.z / segmentSize) + 0.05f));
             if (coordinateInMapRepositiory != finalCoordinate)
             {
                 if (coordinateInMapRepositiory == _nextSegmentPosition)
                     _nextSegmentPosition = path.PopNextPoint() * segmentSize;
 
-                Vector3 offset = (new Vector3(_nextSegmentPosition.x * segmentSize, 0, _nextSegmentPosition.y * segmentSize) - transform.position).normalized;
+                Vector3 offset = (new Vector3(_nextSegmentPosition.x * segmentSize, 0, _nextSegmentPosition.y * segmentSize) - new Vector3(transform.position.x, 0, transform.position.z)).normalized;
                 transform.position += offset * _speed * Time.deltaTime;
             }
             else
