@@ -18,12 +18,12 @@ public class GameResultDeterminator : MonoBehaviour
     private void PlayerWin()
     {
         _scoreCounter.AddScore(10);
-        _stateMachine.SetActiveState(State.BeginGame);
+        _stateMachine.SetActiveState(State.FinalGame);
     }
 
     private void PlayerLost()
     {
-        _stateMachine.SetActiveState(State.BeginGame);
+        _stateMachine.SetActiveState(State.FinalGame);
     }
 
 }

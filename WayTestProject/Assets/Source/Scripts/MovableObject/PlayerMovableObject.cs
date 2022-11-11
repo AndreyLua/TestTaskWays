@@ -26,4 +26,11 @@ public class PlayerMovableObject : MovableObject
     {
         Move(_path, _map.MapSizeConfig.SegmentSize, _map.GetSegmentRepositoryCoordinate(_map.FinalPointSegment));
     }
+
+    public void Restart()
+    {
+        _userPath.Restart();
+        SetPath();
+        SetNextSegmentPosition(_map.GetSegmentRepositoryCoordinate(_map.StartPointSegment));
+    }    
 }

@@ -89,4 +89,12 @@ public class UserPath : MonoBehaviour
         }
         _lineRender.SetPositions(positions);
     }
+
+    public void Restart()
+    {
+        Vector2Int segment = _map.GetSegmentRepositoryCoordinate(_map.StartPointSegment);
+        _path = new PathData();
+        _path.AddNewPoint(segment);
+        _lastElementPathData = segment;
+    }
 }
